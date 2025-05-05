@@ -1,4 +1,5 @@
 ````markdown
+deployed project link: https://slack-clone-daa2d.web.app/
 # React Firebase Google Login
 
 A simple React app demonstrating how to implement Google Sign-In using Firebase Authentication (modular SDK).
