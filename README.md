@@ -1,46 +1,98 @@
-# Getting Started with Create React App and Redux
+````markdown
+# React Firebase Google Login
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+A simple React app demonstrating how to implement Google Sign-In using Firebase Authentication (modular SDK).
 
-## Available Scripts
+## Screenshots
+![image](https://github.com/user-attachments/assets/7adbfc68-e5b4-4027-9844-dce499a35fe8)
+![image](https://github.com/user-attachments/assets/faa553ad-4ef2-4b5a-a7ed-83959127dddf)
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Google Sign-In using Firebase Auth
+- Responsive, styled login screen using MUI and Styled Components
+- Firebase modular SDK (v9+)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- React
+- Firebase Authentication
+- Material UI (MUI)
+- Styled Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or higher)
+- Firebase project created at [https://console.firebase.google.com](https://console.firebase.google.com)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository:**
 
-### `npm run eject`
+```bash
+git clone https://github.com/your-username/react-firebase-login.git
+cd react-firebase-login
+````
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Configure Firebase:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `firebase.js` file in the `src` directory and add your Firebase config:
 
-## Learn More
+```js
+// src/firebase.js
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID",
+  // Add other keys as needed
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+export { auth, provider };
+```
+
+4. **Start the development server:**
+
+```bash
+npm start
+```
+
+The app should open in your browser at `http://localhost:3000`.
+
+## Testing
+
+* Click the "Sign in with Google" button on the login screen.
+* Sign in using your Google account.
+
+## Project Structure
+
+```
+src/
+│
+├── firebase.js           # Firebase config and initialization
+├── Login.js              # Main login component
+├── App.js                # App entry point
+└── index.js              # ReactDOM render setup
+```
+
+## License
+
+MIT License. See `LICENSE` file for details.
+
+```
